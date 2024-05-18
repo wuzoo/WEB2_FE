@@ -1,10 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const NextButton = () => {
+const NextButton = ({ color }) => {
   return (
     <>
-      <Button>다음으로</Button>
+      <Button $isColor={color}>다음으로</Button>
     </>
   );
 };
@@ -12,7 +11,17 @@ const NextButton = () => {
 export default NextButton;
 
 const Button = styled.button`
-  color: ${({ theme }) => theme.colors.white};
+  ${(props) =>
+    props.$isColor
+      ? css`
+          background-color: ${({ theme }) => theme.colors.primary_pink};
+          color: ${({ theme }) => theme.colors.white};
+        `
+      : css`
+          background: ${({ theme }) => theme.colors.gray700};
+          color: ${({ theme }) => theme.colors.gray300};
+        `}
+
   ${({ theme }) => theme.text.Body2};
   display: flex;
   width: 343px;
@@ -23,7 +32,7 @@ const Button = styled.button`
   gap: 10px;
   /* flex-shrink: 0; */
   border-radius: 8px;
-  background: ${({ theme }) => theme.colors.gray700};
+
   margin-bottom: 16px;
   /* 여기서 마진바텀은 푸터와의 간격임 */
 `;

@@ -1,11 +1,11 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import img1 from '../assets/Rectangle 20.png';
+import styled from 'styled-components';
+import img2 from '../assets/Rectangle 800.png';
 
-const CharatorList = ({ color, handleClick }) => {
+const CharatorList2 = () => {
   return (
-    <CellCharactor $isColor={color} onClick={handleClick}>
-      <CharactorImg src={img1} alt="박영재이미지" />
+    <CellCharactor>
+      <CharactorImg src={img2} alt="박영재걸이미지" />
 
       <CharactorInfo>
         <InfoTitle>
@@ -15,32 +15,24 @@ const CharatorList = ({ color, handleClick }) => {
           </AgeFrame>
         </InfoTitle>
         <InfoDetail>
-          훤칠한 스타일에 무뚝뚝해 보이지만 알고보면 따뜻한 성격의 다정한 연하남 스타일이다.
+          귀여운 스타일에 똑부러진 성격이지만 가끔은 덜렁대는 모습을 보여주기도 한다.
         </InfoDetail>
       </CharactorInfo>
     </CellCharactor>
   );
 };
 
-export default CharatorList;
+export default CharatorList2;
 
 const CellCharactor = styled.div`
-  ${(props) =>
-    props.$isColor
-      ? css`
-          border: 0.5px solid ${({ theme }) => theme.colors.primary_pink};
-          background: ${({ theme }) => theme.colors.primary_pale};
-        `
-      : css`
-          border: 0.5px ${({ theme }) => theme.colors.gray400};
-          background: ${({ theme }) => theme.colors.white};
-        `}
   display: flex;
 
   width: 343px;
   height: 148px;
   flex-shrink: 0;
   border-radius: 10px;
+  border: 0.5px ${({ theme }) => theme.colors.gray400};
+  background: ${({ theme }) => theme.colors.white};
 `;
 
 const CharactorImg = styled.img`
@@ -53,7 +45,6 @@ const CharactorImg = styled.img`
 `;
 
 const CharactorInfo = styled.div`
-  margin-right: 16px;
   gap: 8px;
 `;
 
