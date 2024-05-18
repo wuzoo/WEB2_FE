@@ -29,9 +29,13 @@ const SceneModal = ({ modalRef, handleClose }) => {
 };
 
 const ModalWrapper = styled.dialog`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 10px;
   border: 0;
-  margin: 216px 39px 217px 39px;
+  /* margin: 216px 39px 217px 39px; */
   width: 297px;
   height: 379px;
   z-index: 10000;
@@ -47,8 +51,8 @@ const ModalLayout = styled.div`
 `;
 const CloseBtn = styled(xlogo)`
   position: fixed;
-  right: 53px;
-  top: 231px;
+  right: 12px;
+  top: 12px;
 `;
 const ChInfoWrapper = styled.div`
   display: flex;

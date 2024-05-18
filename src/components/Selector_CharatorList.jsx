@@ -9,9 +9,9 @@ const CharatorList = ({ color, handleClick }) => {
 
       <CharactorInfo>
         <InfoTitle>
-          <InfoName>박영재</InfoName>
+          <InfoName>강현우</InfoName>
           <AgeFrame>
-            <InfoAge>26세</InfoAge>
+            <InfoAge>25세</InfoAge>
           </AgeFrame>
         </InfoTitle>
         <InfoDetail>

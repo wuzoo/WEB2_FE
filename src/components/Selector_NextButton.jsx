@@ -1,9 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 const NextButton = ({ color }) => {
+  const navigate = useNavigate();
+  const handleNext = () => {
+    color && navigate('/scene');
+  };
   return (
     <>
-      <Button $isColor={color}>다음으로</Button>
+      <Button $isColor={color} onClick={handleNext}>
+        다음으로
+      </Button>
     </>
   );
 };
