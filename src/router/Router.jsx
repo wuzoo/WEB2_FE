@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from '../App';
-import Funnel from '../pages/funnel/Funnel';
+
 import Home from '../pages/Home';
+import SceneSelect from '../pages/SceneSelect';
 
 const router = createBrowserRouter([
   {
@@ -9,7 +10,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <Home /> },
-      { path: '/test', element: <Funnel /> },
+      { path: 'scene', element: <SceneSelect /> },
     ],
   },
 ]);
