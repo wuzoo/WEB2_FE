@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import React, { useContext, useEffect, useState } from 'react';
 import { default as css, default as styled } from 'styled-components';
+import Chat_modal from '../../../components/chat_modal';
 import { HistoryTextContext } from '../Funnel';
 import ChatBox from '../chatbox/ChatBox';
 import MyChat from '../chatbox/MyChat';
-import Chat_modal from '../../../components/chat_modal';
 
 import { getAnswers, getQuestions, getWeights } from '../../../api';
 
@@ -27,7 +27,6 @@ const Step5 = ({ current, onFinish, onAddWeight }) => {
 
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  
 
   const getData = async () => {
     const response = await getQuestions(1);
