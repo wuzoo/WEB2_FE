@@ -1,37 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Chat_modal from '../components/chat_modal';
 import styled from 'styled-components';
+import axios from 'axios';
 
 //최종결과 조회 api -> imageUrl, title, content
 const result = {
   imageUrl: 'link',
-  isSuccess: true,
+  isSuccess: false,
   title: '어쩌구 타이틀',
   content: '어쩌구 캐릭터의 내용',
 };
-const ResultPage = () => {
-  return (
-    <TotalContainer>
-      <Img src="giff.gif" alt="total image" />
-      <TextContainer>
-        {result.isSuccess ? (
-          <TitleContainer>
-            <TitleWhite>오늘부터</TitleWhite>
-            <TitlePink>1일</TitlePink>
-            <TitleWhite>!</TitleWhite>
-            <HeartImg src="ic_pixelheart.svg" alt="pinkheart" />
-          </TitleContainer>
-        ) : (
-          <TitleContainer>
-            <TitleWhite>아쉽지만 계속 0일...</TitleWhite>
-            <HeartImg src="ic_pixelheart_black.svg" alt="blackheart" />
-          </TitleContainer>
-        )}
 
-        <Content>{result.content}</Content>
-      </TextContainer>
-      <Chat_modal />
-    </TotalContainer>
+const ResultPage = () => {
+  //여기서 최종결과조회 API받아오고 위 result 구조체로 결과 넣기
+  return (
+    <div>
+      {result.isSuccess ? (
+        <TotalContainer>
+          <Img src="giff.gif" alt="total image" />
+          <TextContainer>
+            <TitleContainer>
+              <TitleWhite>오늘부터</TitleWhite>
+              <TitlePink>1일</TitlePink>
+              <TitleWhite>!</TitleWhite>
+              <HeartImg src="ic_pixelheart.svg" alt="pinkheart" />
+            </TitleContainer>
+            <Content>{result.content}</Content>
+          </TextContainer>
+        </TotalContainer>
+      ) : (
+        <TotalContainer>
+          <Img src="giff22.gif" alt="total image" />
+          <TextContainer>
+            <TitleContainer>
+              <TitleWhite>아쉽지만 계속 0일...</TitleWhite>
+              <HeartImg src="ic_pixelheart_black.svg" alt="blackheart" />
+            </TitleContainer>
+            <Content>{result.content}</Content>
+          </TextContainer>
+        </TotalContainer>
+      )}
+    </div>
   );
 };
 

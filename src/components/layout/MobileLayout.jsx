@@ -8,7 +8,7 @@ const Layout = styled.div`
   width: 375px;
   min-height: 100vh;
 
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.black};
 
   overflow: hidden;
 `;

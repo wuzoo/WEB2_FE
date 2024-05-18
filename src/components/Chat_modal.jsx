@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import MobileLayout from './layout/MobileLayout';
 
 //채팅 화면 안에 모달 띄우기
 // props로 중간에 그만둔거면 아무것도 안보내고 다끝난거면 페이지번호 보내기
