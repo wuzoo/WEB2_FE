@@ -27,6 +27,11 @@ const FONT = ({ weight, size, height }) => {
 };
 
 const heading = {
+  Head0: FONT({
+    weight: 600,
+    size: 26,
+    height: 42,
+  }),
   Head1: FONT({
     weight: 600,
     size: 24,
