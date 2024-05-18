@@ -19,7 +19,7 @@ const Selector = () => {
       <Ment>당신의 1일을 위한 상대를 선택해주세요!</Ment>
       <CharatorListWrapper>
         <CharatorList color={color} handleClick={handleClick} />
-        <CharatorList2 />
+        <CharatorList2 color={color} handleClick={handleClick} />
       </CharatorListWrapper>
       <NextButton color={color} />
     </Main>

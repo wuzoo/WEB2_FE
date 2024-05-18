@@ -161,4 +161,6 @@
 <img style="object-fit: cover;" src="https://velog.velcdn.com/images/wuzoo/post/cc188ea3-93ec-45f9-b40c-1713dc394636/image.jpeg" alt="웨비 팀원들 사진 (before)" width="400" height="400" />
  
 <h3>After</h3>
-<img src="" alt="웨비 팀원들 사진 (after)"/>
+<img style="object-fit: cover;" src="![애프터사진](https://github.com/NOW-SOPT-SOPKATHON-WEB2/WEB2_FE/assets/157878428/1b6d94d7-a7da-4eb2-a9a8-6e2b298e506e)
+
+" alt="웨비 팀원들 사진 (before)" width="400" height="400" />
