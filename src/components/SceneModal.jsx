@@ -1,8 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import manImg from '../assets/man.svg?react';
 import xlogo from '../assets/xlogo.svg?react';
-import { useNavigate } from 'react-router-dom';
 const SceneModal = ({ modalRef, handleClose }) => {
   const navigate = useNavigate();
   const handleStart = () => {
@@ -15,8 +15,8 @@ const SceneModal = ({ modalRef, handleClose }) => {
         <ChImg />
         <ChInfoWrapper>
           <ChInfo>
-            <ChName>박영재</ChName>
-            <ChAge>26세</ChAge>
+            <ChName>강현우</ChName>
+            <ChAge>25세</ChAge>
           </ChInfo>
           <ChDescription>
             s 버디버디조부터 솝커톤까지 같은 조에 배정된 우리. 이거 운명인가?

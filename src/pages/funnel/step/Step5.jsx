@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React, { useContext, useEffect, useState } from 'react';
 import { default as css, default as styled } from 'styled-components';
-import Chat_modal from '../../../components/chat_modal';
+import Chat_modal from '../../../components/Chat_modal';
 import { HistoryTextContext } from '../Funnel';
 import ChatBox from '../chatbox/ChatBox';
 import MyChat from '../chatbox/MyChat';
@@ -26,7 +26,6 @@ const Step5 = ({ current, onFinish, onAddWeight }) => {
   const { texts, setTexts } = useContext(HistoryTextContext);
 
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
 
   const getData = async () => {
     const response = await getQuestions(1);

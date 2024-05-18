@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import React, { useContext, useEffect, useState } from 'react';
 import { default as css, default as styled } from 'styled-components';
 import { getAnswers, getQuestions, getWeights } from '../../../api';
+import Chat_modal from '../../../components/Chat_modal';
 import { HistoryTextContext } from '../Funnel';
 import ChatBox from '../chatbox/ChatBox';
 import MyChat from '../chatbox/MyChat';
-import Chat_modal from '../../../components/chat_modal';
 
 const Step1 = ({ current, onChangeStep, onAddWeight }) => {
   const [clickedId, setClickedId] = useState(0);
