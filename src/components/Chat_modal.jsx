@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
-import styled from 'styled-components';
+import { Navigate, useNavigate } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 //채팅 화면 안에 모달 띄우기
 // props로 isOpen상태, variant
@@ -9,66 +9,79 @@ import styled from 'styled-components';
 //varient는 true: 중간에 고백했을떄
 //false: 마무리 됐을 때
 
-const Chat_modal = ({ isOpen, variant }) => {
-  const navi = Navigate();
+const Chat_modal = ({ variant, open }) => {
+  console.log(open);
+  const navi = useNavigate();
   //routs이동 하는 그거 뭐였더라
-
-  if (true) {
+  console.log('ddd' + variant);
+  if (variant < 8) {
     //중간에 고백했을때!!!!
+
     return (
-      <>
-        {true && (
-          <Dialog>
-            <Img src="Layer_2.svg" alt="illust" />
-            <Text>지금 고백할까?</Text>
-            <ButtonContainer>
-              <Btn1 onClick={() => setIsOpen((prev) => !prev)}>돌아가기</Btn1>
-              <Btn2
-                onClick={() => {
-                  setIsOpen((prev) => !prev);
-                  navi('/result');
-                }}
-              >
-                고백하기
-              </Btn2>
-            </ButtonContainer>
-          </Dialog>
-        )}
-      </>
+      <BackDrop $open={open}>
+        <Dialog>
+          <Img src="Layer_2.svg" alt="illust" />
+          <Text>지금 고백할까?</Text>
+          <ButtonContainer>
+            <Btn1 onClick={() => setIsOpen((prev) => !prev)}>돌아가기</Btn1>
+            <Btn2
+              onClick={() => {
+                navi('/result');
+              }}
+            >
+              고백하기
+            </Btn2>
+          </ButtonContainer>
+        </Dialog>
+      </BackDrop>
     );
   } else {
     return (
-      <>
-        {isOpen && (
-          <Dialog>
-            <Img src="Layer_2.svg" alt="illust" />
-            <Text>
-              모든 대화가 끝났어요!
-              <br /> 이제 고백할 차례예요
-            </Text>
-            <ButtonContainer>
-              <Btn3
-                onClick={() => {
-                  setIsOpen((prev) => !prev);
-                  navi('/result');
-                }}
-              >
-                고백하기
-              </Btn3>
-            </ButtonContainer>
-          </Dialog>
-        )}
-      </>
+      <BackDrop $open={open}>
+        <Dialog>
+          <Img src="Layer_2.svg" alt="illust" />
+          <Text>
+            모든 대화가 끝났어요!
+            <br /> 이제 고백할 차례예요
+          </Text>
+          <ButtonContainer>
+            <Btn3
+              onClick={() => {
+                navi('/result');
+              }}
+            >
+              고백하기
+            </Btn3>
+          </ButtonContainer>
+        </Dialog>
+      </BackDrop>
     );
   }
 };
 
 export default Chat_modal;
 
+const BackDrop = styled.div`
+  ${(props) =>
+    props.$open
+      ? css`
+          display: block;
+        `
+      : css`
+          display: none;
+        `}
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+`;
 const Dialog = styled.div`
-  position: relative;
-  top: 0px;
-  left: 10%;
+  position: fixed;
+  top: 249px;
+  left: 39px;
   display: flex;
   flex-direction: column;
   justify-content: center;

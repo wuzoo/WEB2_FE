@@ -1,12 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
+import Chat_modal from '../../../components/chat_modal';
+import axios from 'axios';
+
+//const [variant, setVariant] = useState();
 
 const AnswerBox = ({ onChange, selectedId, onSelect }) => {
+  //let variant;
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    axios
+      .get('https://api.g0-100.p-e.kr/api/v1/question/1', {
+        headers: {
+          'Content-Type': 'application/json',
+          memberId: 1,
+        },
+      })
+      .then((res) => {
+        console.log(res.data.data.questionList.length - 1);
+        //setVariant(res.data.data.questionList.length - 1);
+        //variant = res.data.data.questionList.length - 1;
+        //console.log(variant);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   const handleAnswerClick = (id) => {
     onChange(id);
     onSelect();
   };
-
+  const handleModalOpen = () => {
+    setOpen((prevState) => !prevState);
+  };
   return (
     <Wrapper>
       <Text>답변을 선택해주세요</Text>
@@ -19,7 +46,8 @@ const AnswerBox = ({ onChange, selectedId, onSelect }) => {
       <AnswerButton selected={selectedId === 3} onClick={() => handleAnswerClick(3)}>
         1. 답변 내용
       </AnswerButton>
-      <GoBackButton>지금 고백하기</GoBackButton>
+      <GoBackButton onClick={handleModalOpen}>지금 고백하기</GoBackButton>
+      <Chat_modal open={open} />
     </Wrapper>
   );
 };
