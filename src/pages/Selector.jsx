@@ -1,20 +1,27 @@
-import React from 'react';
 import NextButton from '../components/Selector_NextButton'; //잊지말자 import
 import CharatorList from '../components/Selector_CharatorList';
+
 import Layer_2 from '../assets/Layer_2.svg?react';
 import styled from 'styled-components';
+import React, { useState } from 'react';
+import CharatorList2 from '../components/Selector_CharatorList2';
 
 const Selector = () => {
+  const [color, setColor] = useState(false);
+  const handleClick = () => {
+    console.log('asdf');
+    setColor((prevState) => !prevState);
+  };
   return (
     <Main>
       <Layer_2 width={118} height={34} style={{ marginTop: '20px' }} />
       {/* 여기서 마진탑은 헤더와의 간격임 */}
       <Ment>당신의 1일을 위한 상대를 선택해주세요!</Ment>
       <CharatorListWrapper>
-        <CharatorList />
-        <CharatorList />
+        <CharatorList color={color} handleClick={handleClick} />
+        <CharatorList2 color={color} handleClick={handleClick} />
       </CharatorListWrapper>
-      <NextButton />
+      <NextButton color={color} />
     </Main>
   );
 };
