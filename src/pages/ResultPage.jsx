@@ -62,7 +62,7 @@ export default ResultPage;
 
 const TotalContainer = styled.div`
   position: relative;
-  top: 200px;
+  top: 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,24 +1,36 @@
 import React, { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 //채팅 화면 안에 모달 띄우기
 // props로 isOpen상태, variant
 //부모에서 isOpen useState만들어야함 (여기서 이용)
+
 //varient는 true: 중간에 고백했을떄
 //false: 마무리 됐을 때
 
 const Chat_modal = ({ isOpen, variant }) => {
-  if (variant) {
+  const navi = Navigate();
+  //routs이동 하는 그거 뭐였더라
+
+  if (true) {
     //중간에 고백했을때!!!!
     return (
       <>
-        {isOpen && (
+        {true && (
           <Dialog>
             <Img src="Layer_2.svg" alt="illust" />
             <Text>지금 고백할까?</Text>
             <ButtonContainer>
               <Btn1 onClick={() => setIsOpen((prev) => !prev)}>돌아가기</Btn1>
-              <Btn2 onClick={() => setIsOpen((prev) => !prev)}>고백하기</Btn2>
+              <Btn2
+                onClick={() => {
+                  setIsOpen((prev) => !prev);
+                  navi('/result');
+                }}
+              >
+                고백하기
+              </Btn2>
             </ButtonContainer>
           </Dialog>
         )}
@@ -35,7 +47,14 @@ const Chat_modal = ({ isOpen, variant }) => {
               <br /> 이제 고백할 차례예요
             </Text>
             <ButtonContainer>
-              <Btn3 onClick={() => setIsOpen((prev) => !prev)}>고백하기</Btn3>
+              <Btn3
+                onClick={() => {
+                  setIsOpen((prev) => !prev);
+                  navi('/result');
+                }}
+              >
+                고백하기
+              </Btn3>
             </ButtonContainer>
           </Dialog>
         )}
