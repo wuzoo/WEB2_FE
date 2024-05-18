@@ -1,24 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Chat_modal from '../components/chat_modal';
 import styled from 'styled-components';
 import axios from 'axios';
 
 //최종결과 조회 api -> imageUrl, title, content
-const result = {
-  imageUrl: 'link',
-  isSuccess: false,
-  title: '어쩌구 타이틀',
-  content: '어쩌구 캐릭터의 내용',
-};
 
 const ResultPage = () => {
   //여기서 최종결과조회 API받아오고 위 result 구조체로 결과 넣기
-  axios.get(`https://api.g0-100.p-e.kr/api/v1/result/1/${weight}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      memberId: 1,
-    },
-  });
+  const [result, setResult] = useState({ imageUrl: '', isSuccess: '', title: '', content: '' });
+
+  useEffect(() => {
+    axios
+      .get('https://api.g0-100.p-e.kr/api/v1/result/1/20', {
+        headers: {
+          'Content-Type': 'application/json',
+          memberId: 1,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setResult(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div>
