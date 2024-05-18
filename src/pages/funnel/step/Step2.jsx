@@ -33,7 +33,7 @@ const Step2 = ({ current, onChangeStep, onAddWeight }) => {
 
     setAnswers(answers.data.answerList);
 
-    setData(response.data.questionList);
+    setData(response.data.questionList.slice(response.data.questionList.length - 2));
   };
 
   useEffect(() => {

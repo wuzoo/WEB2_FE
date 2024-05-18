@@ -12,6 +12,8 @@ const ResultPage = () => {
 
   const state = useLocation();
 
+  console.log(state.state);
+
   useEffect(() => {
     axios
       .get(`https://api.g0-100.p-e.kr/api/v1/result/1/${state.state}`, {
