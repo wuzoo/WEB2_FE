@@ -1,5 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { getQuestions } from '../../api';
+import React, { createContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Step1 from './step/Step1';
 import Step2 from './step/Step2';
 import Step3 from './step/Step3';
@@ -22,27 +22,24 @@ const HistoryTextProvider = ({ children }) => {
 const Funnel = () => {
   const [step, setStep] = useState(1);
   const [weight, setWeight] = useState(0);
+  const [isDone, setIsDone] = useState(false);
+  const navigate = useNavigate();
 
-  const getData = async () => {
-    const response1 = await getQuestions(1);
-    // const response2 = await getAnswers(1);
-    // const response3 = await getWeights(1);
-    // const response4 = await getResult();
+  if (isDone) {
+    navigate('/result');
+  }
 
-    console.log(response1);
+  const handleAdd = (weight) => {
+    setWeight((prev) => prev + weight);
   };
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   return (
     <HistoryTextProvider>
-      <Step1 current={step} onChangeStep={() => setStep(2)}></Step1>
-      <Step2 current={step} onChangeStep={() => setStep(3)}></Step2>
-      <Step3 current={step} onChangeStep={() => setStep(4)}></Step3>
-      <Step4 current={step} onChangeStep={() => setStep(5)}></Step4>
-      <Step5 current={step} onChangeStep={() => {}}></Step5>
+      <Step1 onAddWeight={handleAdd} current={step} onChangeStep={() => setStep(2)}></Step1>
+      <Step2 onAddWeight={handleAdd} current={step} onChangeStep={() => setStep(3)}></Step2>
+      <Step3 onAddWeight={handleAdd} current={step} onChangeStep={() => setStep(4)}></Step3>
+      <Step4 onAddWeight={handleAdd} current={step} onChangeStep={() => setStep(5)}></Step4>
+      <Step5 onAddWeight={handleAdd} current={step} onFinish={() => setIsDone(true)}></Step5>
     </HistoryTextProvider>
   );
 };

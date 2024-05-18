@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const AnswerBox = ({ onChange, selectedId, onSelect }) => {
+const AnswerBox = ({ answers = [], onChange, selectedId, onSelect }) => {
   const handleAnswerClick = (id) => {
     onChange(id);
     onSelect();
@@ -10,15 +10,12 @@ const AnswerBox = ({ onChange, selectedId, onSelect }) => {
   return (
     <Wrapper>
       <Text>답변을 선택해주세요</Text>
-      <AnswerButton selected={selectedId === 1} onClick={() => handleAnswerClick(1)}>
-        1. 답변 내용
-      </AnswerButton>
-      <AnswerButton selected={selectedId === 2} onClick={() => handleAnswerClick(2)}>
-        1. 답변 내용
-      </AnswerButton>
-      <AnswerButton selected={selectedId === 3} onClick={() => handleAnswerClick(3)}>
-        1. 답변 내용
-      </AnswerButton>
+      {answers.map((item, index) => (
+        <AnswerButton selected={selectedId === 3} onClick={() => handleAnswerClick(3)}>
+          {index + 1}. {item.content}
+        </AnswerButton>
+      ))}
+
       <GoBackButton>지금 고백하기</GoBackButton>
     </Wrapper>
   );
