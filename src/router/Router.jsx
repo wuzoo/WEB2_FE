@@ -11,11 +11,11 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
-      { index: true, element: <Home /> },
+      { index: true, element: <Selector /> },
       { path: 'result', element: <ResultPage /> },
       { path: 'chating', element: <Funnel /> },
       { path: 'scene', element: <SceneSelect /> },
-      { path: 'onboarding-select', element: <Selector /> },
+      ,
     ],
   },
 ]);
