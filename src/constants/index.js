@@ -1,5 +1,3 @@
-import Moonrae from '../assets/moonrae.svg?react';
-
 /** 상수 데이터 작성 */
 export const SceneData = [
   {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import xlogo from '../assets/xlogo.svg?react';
 import manImg from '../assets/man.svg?react';
+import xlogo from '../assets/xlogo.svg?react';
 const SceneModal = ({ modalRef, handleClose }) => {
   return (
     <ModalWrapper ref={modalRef}>
