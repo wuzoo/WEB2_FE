@@ -14,48 +14,50 @@ const Chat_modal = ({ variant, open }) => {
   const navi = useNavigate();
   //routs이동 하는 그거 뭐였더라
   console.log('ddd' + variant);
-  if (variant < 8) {
-    //중간에 고백했을때!!!!
+  if (open) {
+    if (variant < 8) {
+      //중간에 고백했을때!!!!
 
-    return (
-      <BackDrop $open={open}>
-        <Dialog>
-          <Img src="Layer_2.svg" alt="illust" />
-          <Text>지금 고백할까?</Text>
-          <ButtonContainer>
-            <Btn1 onClick={() => setIsOpen((prev) => !prev)}>돌아가기</Btn1>
-            <Btn2
-              onClick={() => {
-                navi('/result');
-              }}
-            >
-              고백하기
-            </Btn2>
-          </ButtonContainer>
-        </Dialog>
-      </BackDrop>
-    );
-  } else {
-    return (
-      <BackDrop $open={open}>
-        <Dialog>
-          <Img src="Layer_2.svg" alt="illust" />
-          <Text>
-            모든 대화가 끝났어요!
-            <br /> 이제 고백할 차례예요
-          </Text>
-          <ButtonContainer>
-            <Btn3
-              onClick={() => {
-                navi('/result');
-              }}
-            >
-              고백하기
-            </Btn3>
-          </ButtonContainer>
-        </Dialog>
-      </BackDrop>
-    );
+      return (
+        <BackDrop $open={open}>
+          <Dialog>
+            <Img src="Layer_2.svg" alt="illust" />
+            <Text>지금 고백할까?</Text>
+            <ButtonContainer>
+              <Btn1 onClick={() => setIsOpen((prev) => !prev)}>돌아가기</Btn1>
+              <Btn2
+                onClick={() => {
+                  navi('/result');
+                }}
+              >
+                고백하기
+              </Btn2>
+            </ButtonContainer>
+          </Dialog>
+        </BackDrop>
+      );
+    } else {
+      return (
+        <BackDrop $open={open}>
+          <Dialog>
+            <Img src="Layer_2.svg" alt="illust" />
+            <Text>
+              모든 대화가 끝났어요!
+              <br /> 이제 고백할 차례예요
+            </Text>
+            <ButtonContainer>
+              <Btn3
+                onClick={() => {
+                  navi('/result');
+                }}
+              >
+                고백하기
+              </Btn3>
+            </ButtonContainer>
+          </Dialog>
+        </BackDrop>
+      );
+    }
   }
 };
 
