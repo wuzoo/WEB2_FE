@@ -5,32 +5,46 @@ import MobileLayout from './layout/MobileLayout';
 //채팅 화면 안에 모달 띄우기
 // props로 중간에 그만둔거면 아무것도 안보내고 다끝난거면 페이지번호 보내기
 
-const Chat_modal = () => {
-  //const modalRef = useRef();
-  const [isOpen, setIsOpen] = useState(true);
+const Chat_modal = ({ isOpen, variant }) => {
+  if (variant) {
+    //중간에 고백했을때!!!!
+    return (
+      <>
+        {isOpen && (
+          <Dialog>
+            <Img src="" alt="illust" />
+            <Text>지금 고백할까?</Text>
 
-  return (
-    <>
-      {isOpen && (
-        <Dialog>
-          <Img>illust</Img>
-          <Text>지금 고백할까?</Text>
-
-          <ButtonContainer>
-            <Btn1 onClick={() => setIsOpen((prev) => !prev)}>돌아가기</Btn1>
-            <Btn2 onClick={() => setIsOpen((prev) => !prev)}>고백하기</Btn2>
-          </ButtonContainer>
-        </Dialog>
-      )}
-    </>
-  );
+            <ButtonContainer>
+              <Btn1 onClick={() => setIsOpen((prev) => !prev)}>돌아가기</Btn1>
+              <Btn2 onClick={() => setIsOpen((prev) => !prev)}>고백하기</Btn2>
+            </ButtonContainer>
+          </Dialog>
+        )}
+      </>
+    );
+  } else {
+    return (
+      <>
+        {isOpen && (
+          <Dialog>
+            <Img src="" alt="illust" />
+            <Text>모든 대화가 끝났어요! 이제 고백할 차례예요</Text>
+            <ButtonContainer>
+              <Btn2 onClick={() => setIsOpen((prev) => !prev)}>고백하기</Btn2>
+            </ButtonContainer>
+          </Dialog>
+        )}
+      </>
+    );
+  }
 };
 
 export default Chat_modal;
 
 const Dialog = styled.div`
-  position: relative;
-  top: 250px;
+  position: absolute;
+  top: 100px;
   left: 10%;
   border: 0;
   width: 297px;
@@ -38,7 +52,7 @@ const Dialog = styled.div`
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.white};
 `;
-const Img = styled.div`
+const Img = styled.img`
   position: relative;
   top: 24px;
   left: 95px;

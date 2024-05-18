@@ -5,31 +5,32 @@ import styled from 'styled-components';
 //최종결과 조회 api -> imageUrl, title, content
 const result = {
   imageUrl: 'link',
-  isSuccess: false,
+  isSuccess: true,
   title: '어쩌구 타이틀',
   content: '어쩌구 캐릭터의 내용',
 };
 const ResultPage = () => {
   return (
     <TotalContainer>
-      <Img src={`${result.imageUrl}`} alt="total image" />
+      <Img src="giff.gif" alt="total image" />
       <TextContainer>
         {result.isSuccess ? (
           <TitleContainer>
-            <TitleBlack>오늘부터</TitleBlack>
+            <TitleWhite>오늘부터</TitleWhite>
             <TitlePink>1일</TitlePink>
-            <TitleBlack>!</TitleBlack>
+            <TitleWhite>!</TitleWhite>
             <HeartImg src="ic_pixelheart.svg" alt="pinkheart" />
           </TitleContainer>
         ) : (
           <TitleContainer>
-            <TitleBlack>아쉽지만 계속 0일...</TitleBlack>
+            <TitleWhite>아쉽지만 계속 0일...</TitleWhite>
             <HeartImg src="ic_pixelheart_black.svg" alt="blackheart" />
           </TitleContainer>
         )}
 
         <Content>{result.content}</Content>
       </TextContainer>
+      <Chat_modal />
     </TotalContainer>
   );
 };
@@ -44,13 +45,10 @@ const TotalContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 42px;
-  background-color: white;
 `;
 const Img = styled.img`
-  width: 262px;
   height: 318px;
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.colors.gray300};
 `;
 
 const TextContainer = styled.div`
@@ -61,11 +59,12 @@ const TextContainer = styled.div`
 `;
 const TitleContainer = styled.div`
   display: flex;
+  justify-content: center;
   width: 250px;
   ${({ theme }) => theme.heading.Head1}
 `;
-const TitleBlack = styled.p`
-  color: ${({ theme }) => theme.colors.black};
+const TitleWhite = styled.p`
+  color: ${({ theme }) => theme.colors.white};
 `;
 const TitlePink = styled.p`
   color: ${({ theme }) => theme.colors.primary_pink};
