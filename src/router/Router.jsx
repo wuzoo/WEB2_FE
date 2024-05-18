@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from '../App';
-import Funnel from '../pages/funnel/Funnel';
+import Selector from '../pages/Selector';
 import Home from '../pages/Home';
 
 const router = createBrowserRouter([
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <Home /> },
-      { path: '/test', element: <Funnel /> },
+      { path: 'onboarding-select', element: <Selector /> },
     ],
   },
 ]);
