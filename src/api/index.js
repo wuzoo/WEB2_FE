@@ -4,7 +4,7 @@ export const getQuestions = async (id) => {
   const { data } = await axios.get(`https://api.g0-100.p-e.kr/api/v1/question/${id}`, {
     headers: {
       'Content-Type': 'application/json',
-      memberId: 1,
+      memberId: '1',
     },
   });
 

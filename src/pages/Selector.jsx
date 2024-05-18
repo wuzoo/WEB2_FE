@@ -1,8 +1,10 @@
 import NextButton from '../components/Selector_NextButton'; //잊지말자 import
 import CharatorList from '../components/Selector_CharatorList';
+
 import Layer_2 from '../assets/Layer_2.svg?react';
 import styled from 'styled-components';
 import React, { useState } from 'react';
+import CharatorList2 from '../components/Selector_CharatorList2';
 
 const Selector = () => {
   const [color, setColor] = useState(false);
@@ -17,7 +19,7 @@ const Selector = () => {
       <Ment>당신의 1일을 위한 상대를 선택해주세요!</Ment>
       <CharatorListWrapper>
         <CharatorList color={color} handleClick={handleClick} />
-        <CharatorList />
+        <CharatorList2 />
       </CharatorListWrapper>
       <NextButton color={color} />
     </Main>

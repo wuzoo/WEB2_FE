@@ -1,11 +1,12 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import { default as css, default as styled } from 'styled-components';
 import { HistoryTextContext } from '../Funnel';
-import AnswerBox from '../answerBox/AnswerBox';
 import ChatBox from '../chatbox/ChatBox';
 import MyChat from '../chatbox/MyChat';
+
+import { useNavigate } from 'react-router-dom';
+import { getAnswers, getQuestions, getWeights } from '../../../api';
 
 const variant = {
   initial: { opacity: 0, x: 400, transition: { duration: 0.5 } },
@@ -17,28 +18,41 @@ const variant = {
   exit: { opacity: 0, x: -400, transition: { duration: 0.3 } },
 };
 
-const Step5 = ({ current, onChangeStep }) => {
+const Step5 = ({ current, onFinish, onAddWeight }) => {
   const [clickedId, setClickedId] = useState(0);
   const [isSelected, setIsSelected] = useState(false);
-
+  const [data, setData] = useState();
+  const [answers, setAnswers] = useState([]);
   const { texts, setTexts } = useContext(HistoryTextContext);
+
   const navigate = useNavigate();
+
+  const getData = async () => {
+    const response = await getQuestions(1);
+
+    const currentAnswerId = response.data.questionList.at(-1).questionId;
+
+    const answers = await getAnswers(currentAnswerId);
+
+    setAnswers(answers.data.answerList);
+
+    setData(response.data.questionList.slice(3, 5));
+  };
+  1;
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   useEffect(() => {
     if (isSelected) {
-      setTimeout(() => {
-        onChangeStep(2);
-      }, 1000);
+      onFinish();
     }
   }, [isSelected]);
 
-  const handleSelect = () => {
-    setIsSelected(true);
-  };
-
   return (
-    <AnimatePresence>
-      {current === 4 && (
+    <>
+      {current === 5 && (
         <Container
           variants={variant}
           initial="initial"
@@ -47,14 +61,42 @@ const Step5 = ({ current, onChangeStep }) => {
           step={current}
         >
           <ChatsWrapper>
-            <ChatBox>질문입니다 질문입니다 질문입니다 질문입니다</ChatBox>
-            <MyChat>나입니다 나입니다 나입니다 나입니다</MyChat>
+            {data?.map((item, index) => (
+              <>
+                <ChatBox>{item.content}</ChatBox>
+                {index < texts.length && <MyChat>{texts[index]}</MyChat>}
+              </>
+            ))}
           </ChatsWrapper>
 
-          <AnswerBox selectedId={clickedId} onChange={setClickedId} onSelect={handleSelect} />
+          <Wrapper>
+            <Text>답변을 선택해주세요</Text>
+            {answers.map((item, index) => (
+              <AnswerButton
+                selected={clickedId === index + 1}
+                onClick={async () => {
+                  setClickedId(index + 1);
+
+                  setTexts((prev) => [...prev, item.content]);
+
+                  const response = await getWeights(item.answerId);
+
+                  onAddWeight(response.data.weight);
+
+                  setTimeout(() => {
+                    setIsSelected(true);
+                  }, 1000);
+                }}
+              >
+                {index + 1}. {item.content}
+              </AnswerButton>
+            ))}
+
+            <GoBackButton>지금 고백하기</GoBackButton>
+          </Wrapper>
         </Container>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 
@@ -73,6 +115,55 @@ const Container = styled(motion.div)`
   justify-content: space-between;
 
   height: 95vh;
+`;
+
+const Text = styled.p`
+  ${(props) => props.theme.text.Body4}
+  color: ${(props) => props.theme.colors.gray400};
+`;
+
+const Wrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  padding: 16px;
+
+  background-color: ${(props) => props.theme.colors.gray100};
+`;
+
+const AnswerButton = styled.button`
+  width: 340px;
+
+  padding: 10px 0px;
+
+  border: none;
+  border-radius: 8px;
+  background-color: ${(props) => props.theme.colors.white};
+
+  ${(props) =>
+    props.selected &&
+    css`
+      background-color: ${(props) => props.theme.colors.primary_pale};
+      box-shadow: inset 0 0 0 1px ${(props) => props.theme.colors.primary_pink};
+    `}
+
+  ${(props) => props.theme.text.Body3}
+`;
+
+const GoBackButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 375px;
+  height: 65px;
+
+  border: none;
+  background-color: ${(props) => props.theme.colors.primary_pink};
+  color: ${(props) => props.theme.colors.white};
+  ${(props) => props.theme.heading.Head3}
 `;
 
 export default Step5;
