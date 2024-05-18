@@ -11,7 +11,7 @@ const ResultPage = () => {
 
   useEffect(() => {
     axios
-      .get(`https://api.g0-100.p-e.kr/api/v1/result/1/220`, {
+      .get(`https://api.g0-100.p-e.kr/api/v1/result/1/${state.state}`, {
         headers: {
           'Content-Type': 'application/json',
           memberId: 1,
