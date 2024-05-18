@@ -4,6 +4,7 @@ import { default as css, default as styled } from 'styled-components';
 import { HistoryTextContext } from '../Funnel';
 import ChatBox from '../chatbox/ChatBox';
 import MyChat from '../chatbox/MyChat';
+import Chat_modal from '../../../components/chat_modal';
 
 import { getAnswers, getQuestions, getWeights } from '../../../api';
 
@@ -24,6 +25,10 @@ const Step5 = ({ current, onFinish, onAddWeight }) => {
   const [answers, setAnswers] = useState([]);
   const { texts, setTexts } = useContext(HistoryTextContext);
 
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  
+
   const getData = async () => {
     const response = await getQuestions(1);
 
@@ -41,6 +46,9 @@ const Step5 = ({ current, onFinish, onAddWeight }) => {
     getData();
   }, []);
 
+  const handleModalOpen = () => {
+    setOpen((prevState) => !prevState);
+  };
   return (
     <>
       {current === 5 && (
@@ -78,8 +86,8 @@ const Step5 = ({ current, onFinish, onAddWeight }) => {
                 {index + 1}. {item.content}
               </AnswerButton>
             ))}
-
-            <GoBackButton>지금 고백하기</GoBackButton>
+            <GoBackButton onClick={handleModalOpen}>지금 고백하기</GoBackButton>
+            <Chat_modal open={open} />
           </Wrapper>
         </Container>
       )}
