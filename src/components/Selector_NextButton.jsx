@@ -23,5 +23,7 @@ const Button = styled.button`
   gap: 10px;
   /* flex-shrink: 0; */
   border-radius: 8px;
-  background: ${({ theme }) => theme.colors.primary_pink};
+  background: ${({ theme }) => theme.colors.gray700};
+  margin-bottom: 16px;
+  /* 여기서 마진바텀은 푸터와의 간격임 */
 `;
