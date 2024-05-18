@@ -1,21 +1,21 @@
 <div align="center">
 
-<h2> (서비스이름) </h2>
+<h2>g0-100</h2>
 
 <img src=""  alt="서비스대표-이미지" />
-<div>(서비스 소개)</div>
+<div>당신의 0일 탈출, 1일 시작을 위한 연애 채팅 시뮬레이터</div>
 
 </div>
 
-<h2> ✨ (서비스) 주요 기능 </h2>
+<h2> ✨ 상황선택에따른 연애 시뮬레이션 </h2>
 
-<h3> 1️⃣ (기능) </h3>
+<h3> 1️⃣ 상황 선택  </h3>
 <img src=""  alt="기능1-대표이미지" />
-<div ><strong> (강조단어) </strong> (기능설명)  <br/></div>
+<div ><strong> 상황 </strong> 상황에 따라 유저가 자신이 할 것 같은 말 선택 <br/></div>
 
-<h3> 2️⃣ (기능) </h3>
+<h3> 2️⃣ 캐릭터 선택 </h3>
 <img src=""  alt="기능1-대표이미지" />
-<div ><strong> (강조단어) </strong> (기능설명)  <br/></div>
+<div ><strong> 캐릭터 </strong> 자신과 유사한 상황에 임할 캐릭터 선택 <br/></div>
 
 <h2> 👥 Team </h2>
 
@@ -30,7 +30,7 @@
         </td>
       <td style="min-width: 150px;">
             <a href="https://github.com/rtttr1">
-              <img src="https://velog.velcdn.com/images/wuzoo/post/1267de69-f006-4937-9779-f4edd9d9015c/image.png"  style="object-fit: cover;" width="200" height="260" alt="깃허브계정-프로필사진">
+              <img src="https://velog.velcdn.com/images/wuzoo/post/1267de69-f006-4937-9779-f4edd9d9015c/image.jpeg"  style="object-fit: cover;" width="200" height="260" alt="깃허브계정-프로필사진">
               <br />
               <b>rtttr1</b>
             </a>
@@ -65,6 +65,9 @@
       </td>
     </tr>
   	<tr align="center">
+       <td>
+            (역할분담) <br/>
+      </td>
        <td>
             (역할분담) <br/>
       </td>
@@ -125,8 +128,8 @@
 	|          |-- useMyReservations.js
 	|-- 📁 pages
 	|      |--📁APage
-	|		   |     |-- Apage.jsx
-	|		   |     |-- Apage.style.js
+	|		   |-- Apage.jsx
+	|		   |-- Apage.style.js
 	|      |--📁BPage
 	|      |--📁CPage
 	|-- 📁 router
@@ -151,7 +154,9 @@
 4. “청유형”으로 말하기
 5. 화내지 않기, 둥근 말투
 
-<h2> 새싹 웨비 Before and After</h2>
+<h2> 새싹 웨비 Before and After</h2> <td>
+            (역할분담) <br/>
+      </td>
 <h3>Before</h3>
 <img style="object-fit: cover;" src="https://velog.velcdn.com/images/wuzoo/post/cc188ea3-93ec-45f9-b40c-1713dc394636/image.jpeg" alt="웨비 팀원들 사진 (before)" width="400" height="400" />
  
