@@ -6,7 +6,7 @@ const MobileLayout = ({ children }) => {
 
 const Layout = styled.div`
   width: 375px;
-  min-height: 100vh;
+  height: 100vh;
 
   background-color: ${({ theme }) => theme.colors.black};
 
