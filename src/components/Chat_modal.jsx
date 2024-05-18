@@ -14,9 +14,8 @@ const Chat_modal = ({ isOpen, variant }) => {
       <>
         {isOpen && (
           <Dialog>
-            <Img src="" alt="illust" />
+            <Img src="Layer_2.svg" alt="illust" />
             <Text>지금 고백할까?</Text>
-
             <ButtonContainer>
               <Btn1 onClick={() => setIsOpen((prev) => !prev)}>돌아가기</Btn1>
               <Btn2 onClick={() => setIsOpen((prev) => !prev)}>고백하기</Btn2>
@@ -30,10 +29,13 @@ const Chat_modal = ({ isOpen, variant }) => {
       <>
         {isOpen && (
           <Dialog>
-            <Img src="" alt="illust" />
-            <Text>모든 대화가 끝났어요! 이제 고백할 차례예요</Text>
+            <Img src="Layer_2.svg" alt="illust" />
+            <Text>
+              모든 대화가 끝났어요!
+              <br /> 이제 고백할 차례예요
+            </Text>
             <ButtonContainer>
-              <Btn2 onClick={() => setIsOpen((prev) => !prev)}>고백하기</Btn2>
+              <Btn3 onClick={() => setIsOpen((prev) => !prev)}>고백하기</Btn3>
             </ButtonContainer>
           </Dialog>
         )}
@@ -45,9 +47,13 @@ const Chat_modal = ({ isOpen, variant }) => {
 export default Chat_modal;
 
 const Dialog = styled.div`
-  position: absolute;
-  top: 100px;
+  position: relative;
+  top: 0px;
   left: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border: 0;
   width: 297px;
   height: 288px;
@@ -55,25 +61,16 @@ const Dialog = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
 `;
 const Img = styled.img`
-  position: relative;
-  top: 24px;
-  left: 95px;
-  width: 106px;
+  width: 200px;
   height: 129px;
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.colors.gray200};
 `;
 const Text = styled.p`
-  position: relative;
-  top: 50px;
-  left: 95px;
   ${({ theme }) => theme.text.Body2}
   color: ${({ theme }) => theme.colors.black};
+  flex-wrap: wrap;
 `;
 const ButtonContainer = styled.div`
-  position: relative;
-  top: 70px;
-  left: 10px;
   display: flex;
   gap: 7px;
 `;
@@ -100,7 +97,21 @@ const Btn2 = styled.button`
   border-radius: 8px;
   justify-content: center;
   align-items: center;
-
   border: 0;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.primary_pink};
+`;
+
+const Btn3 = styled.button`
+  display: flex;
+  width: 133px;
+  height: 49px;
+  padding: 10px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  border: 0;
+  color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.primary_pink};
 `;

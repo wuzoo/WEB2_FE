@@ -13,6 +13,13 @@ const result = {
 
 const ResultPage = () => {
   //여기서 최종결과조회 API받아오고 위 result 구조체로 결과 넣기
+  axios.get(`https://api.g0-100.p-e.kr/api/v1/result/1/${weight}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      memberId: 1,
+    },
+  });
+
   return (
     <div>
       {result.isSuccess ? (
@@ -40,6 +47,7 @@ const ResultPage = () => {
           </TextContainer>
         </TotalContainer>
       )}
+      <Chat_modal />
     </div>
   );
 };
