@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import img2 from '../assets/Rectangle 800.png';
 
 const CharatorList2 = () => {
@@ -9,9 +9,9 @@ const CharatorList2 = () => {
 
       <CharactorInfo>
         <InfoTitle>
-          <InfoName>박영재</InfoName>
+          <InfoName>이민지</InfoName>
           <AgeFrame>
-            <InfoAge>26세</InfoAge>
+            <InfoAge>23세</InfoAge>
           </AgeFrame>
         </InfoTitle>
         <InfoDetail>
