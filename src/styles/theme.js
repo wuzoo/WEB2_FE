@@ -1,6 +1,7 @@
 const colors = {
   white: '#FFFFFF',
   black: '#000000',
+
   gray100: '#F2F2F2',
   gray200: '#ECECEC',
   gray300: '#D8D8D8',
@@ -10,6 +11,10 @@ const colors = {
   gray700: '#535353',
   gray800: '#4D4D4D',
   gray900: '#333333',
+
+  primary_pink: '#FF1256',
+  primary_pale: '#FFF2F6',
+
   boxDrop: 'rgba(42, 42, 42, 0.15)',
 };
 
