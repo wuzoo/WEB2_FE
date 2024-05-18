@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from '../App';
+import Funnel from '../pages/funnel/Funnel';
 import Home from '../pages/Home';
 import Selector from '../pages/Selector';
 
