@@ -33,7 +33,7 @@ const Step4 = ({ current, onChangeStep, onAddWeight }) => {
 
     setAnswers(answers.data.answerList);
 
-    setData(response.data.questionList.slice(2, 4));
+    setData(response.data.questionList);
   };
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Step4 = ({ current, onChangeStep, onAddWeight }) => {
   useEffect(() => {
     if (isSelected) {
       setTimeout(() => {
-        onChangeStep(5);
+        onChangeStep();
       }, 1000);
     }
   }, [isSelected]);
@@ -59,12 +59,10 @@ const Step4 = ({ current, onChangeStep, onAddWeight }) => {
           step={current}
         >
           <ChatsWrapper>
-            {data?.map((item, index) => (
-              <>
-                <ChatBox>{item.content}</ChatBox>
-                {index < texts.length && <MyChat>{texts[index]}</MyChat>}
-              </>
-            ))}
+            <ChatBox>{data[data.length - 2].content}</ChatBox>
+            <MyChat>{texts[texts.length - 2]}</MyChat>
+            <ChatBox>{data[data.length - 1].content}</ChatBox>
+            {isSelected && <MyChat>{texts.at(-1)}</MyChat>}
           </ChatsWrapper>
 
           <Wrapper>
