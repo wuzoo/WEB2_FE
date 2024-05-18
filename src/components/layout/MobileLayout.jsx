@@ -6,9 +6,9 @@ const MobileLayout = ({ children }) => {
 
 const Layout = styled.div`
   width: 375px;
-  min-height: 100vh;
+  height: 100vh;
 
-  background-color: lightgray;
+  background-color: ${(props) => props.theme.colors.black};
 
   overflow: hidden;
 `;
