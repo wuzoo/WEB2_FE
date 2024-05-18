@@ -2,7 +2,7 @@
 
 <h2>g0-100</h2>
 
-<img src=""  alt="서비스대표-이미지" />
+<img src="https://velog.velcdn.com/images/wuzoo/post/ece075fe-9eb4-4d91-a303-169e3510b09a/image.png"  alt="서비스대표-이미지" />
 <div>당신의 0일 탈출, 1일 시작을 위한 연애 채팅 시뮬레이터</div>
 
 </div>
@@ -66,16 +66,16 @@
     </tr>
   	<tr align="center">
        <td>
-            (역할분담) <br/>
+        	채팅 화면 구현 <br/>
       </td>
        <td>
-            (역할분담) <br/>
+            상황 선택 화면 구현 <br/>
       </td>
        <td>
-            (역할분담) <br/>
+            고백 모달 구현, 결과 화면 구현 <br/>
       </td>
        <td>
-            (역할분담) <br/>
+           스플래쉬 화면 구현, 캐릭터 선택 화면 구현  <br/>
       </td>
     </tr>
 </table>
