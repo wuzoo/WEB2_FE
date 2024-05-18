@@ -74,7 +74,9 @@ const BackDrop = styled.div`
         `}
 
   position: fixed;
-  top: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -83,7 +85,7 @@ const BackDrop = styled.div`
 const Dialog = styled.div`
   position: fixed;
   top: 249px;
-  left: 39px;
+  left: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;

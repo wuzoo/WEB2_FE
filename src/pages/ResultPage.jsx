@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Chat_modal from '../components/Chat_modal';
+import Chat_modal from '../components/chat_modal';
 import styled from 'styled-components';
 import axios from 'axios';
 
