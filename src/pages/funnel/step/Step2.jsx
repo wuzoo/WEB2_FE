@@ -35,7 +35,7 @@ const Step2 = ({ current, onChangeStep, onAddWeight }) => {
 
     setAnswers(answers.data.answerList);
 
-    setData(response.data.questionList.slice(0, 2));
+    setData(response.data.questionList);
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Step2 = ({ current, onChangeStep, onAddWeight }) => {
   useEffect(() => {
     if (isSelected) {
       setTimeout(() => {
-        onChangeStep(3);
+        onChangeStep();
       }, 1000);
     }
   }, [isSelected]);
@@ -85,9 +85,7 @@ const Step2 = ({ current, onChangeStep, onAddWeight }) => {
 
                   onAddWeight(response.data.weight);
 
-                  setTimeout(() => {
-                    setIsSelected(true);
-                  }, 1000);
+                  setIsSelected(true);
                 }}
               >
                 {index + 1}. {item.content}

@@ -34,7 +34,7 @@ const Step1 = ({ current, onChangeStep, onAddWeight }) => {
   useEffect(() => {
     if (isSelected) {
       setTimeout(() => {
-        onChangeStep(2);
+        onChangeStep();
       }, 1000);
     }
   }, [isSelected]);
@@ -68,9 +68,7 @@ const Step1 = ({ current, onChangeStep, onAddWeight }) => {
 
                   onAddWeight(response.data.weight);
 
-                  setTimeout(() => {
-                    setIsSelected(true);
-                  }, 1000);
+                  setIsSelected(true);
                 }}
               >
                 {index + 1}. {item.content}

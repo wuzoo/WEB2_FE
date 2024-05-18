@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import Chat_modal from '../components/chat_modal';
-import styled from 'styled-components';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import Chat_modal from '../components/Chat_modal';
+import styled from 'styled-components';
 
 //최종결과 조회 api -> imageUrl, title, content
 
 const ResultPage = () => {
   //여기서 최종결과조회 API받아오고 위 result 구조체로 결과 넣기
   const [result, setResult] = useState({ imageUrl: '', isSuccess: '', title: '', content: '' });
+
+  const state = useLocation();
 
   useEffect(() => {
     axios

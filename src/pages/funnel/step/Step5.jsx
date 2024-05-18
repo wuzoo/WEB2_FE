@@ -6,7 +6,6 @@ import ChatBox from '../chatbox/ChatBox';
 import MyChat from '../chatbox/MyChat';
 import Chat_modal from '../../../components/chat_modal';
 
-import { useNavigate } from 'react-router-dom';
 import { getAnswers, getQuestions, getWeights } from '../../../api';
 
 const variant = {
@@ -25,8 +24,10 @@ const Step5 = ({ current, onFinish, onAddWeight }) => {
   const [data, setData] = useState();
   const [answers, setAnswers] = useState([]);
   const { texts, setTexts } = useContext(HistoryTextContext);
+
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  
 
   const getData = async () => {
     const response = await getQuestions(1);
@@ -37,7 +38,7 @@ const Step5 = ({ current, onFinish, onAddWeight }) => {
 
     setAnswers(answers.data.answerList);
 
-    setData(response.data.questionList.slice(3, 5));
+    setData(response.data.questionList);
   };
   1;
 
@@ -45,11 +46,6 @@ const Step5 = ({ current, onFinish, onAddWeight }) => {
     getData();
   }, []);
 
-  useEffect(() => {
-    if (isSelected) {
-      onFinish();
-    }
-  }, [isSelected]);
   const handleModalOpen = () => {
     setOpen((prevState) => !prevState);
   };
@@ -64,12 +60,10 @@ const Step5 = ({ current, onFinish, onAddWeight }) => {
           step={current}
         >
           <ChatsWrapper>
-            {data?.map((item, index) => (
-              <>
-                <ChatBox>{item.content}</ChatBox>
-                {index < texts.length && <MyChat>{texts[index]}</MyChat>}
-              </>
-            ))}
+            <ChatBox>{data[data.length - 2].content}</ChatBox>
+            <MyChat>{texts[texts.length - 2]}</MyChat>
+            <ChatBox>{data[data.length - 1].content}</ChatBox>
+            {isSelected && <MyChat>{texts.at(-1)}</MyChat>}
           </ChatsWrapper>
 
           <Wrapper>
@@ -86,9 +80,7 @@ const Step5 = ({ current, onFinish, onAddWeight }) => {
 
                   onAddWeight(response.data.weight);
 
-                  setTimeout(() => {
-                    setIsSelected(true);
-                  }, 1000);
+                  onFinish();
                 }}
               >
                 {index + 1}. {item.content}
