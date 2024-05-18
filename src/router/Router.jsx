@@ -9,7 +9,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <Home /> },
-      { path: '/test', element: <Funnel /> },
+      { path: 'chating', element: <Funnel /> },
     ],
   },
 ]);
