@@ -26,7 +26,11 @@ const Funnel = () => {
   const navigate = useNavigate();
 
   if (isDone) {
-    navigate('/result');
+    navigate('/result', {
+      state: {
+        weight,
+      },
+    });
   }
 
   const handleAdd = (weight) => {
