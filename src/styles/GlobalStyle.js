@@ -17,7 +17,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    text-decoration: 'none';
-    
+    text-decoration: 'none'; 
+  }
+
+  ::-webkit-scrollbar{
+    display: none;
   }
 `;
