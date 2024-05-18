@@ -1,15 +1,13 @@
 import { Outlet } from 'react-router-dom';
-
-import { ThemeProvider } from 'styled-components';
-import { theme } from './styles/theme';
+import MobileLayout from './components/layout/MobileLayout';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <MobileLayout>
       <main>
         <Outlet />
       </main>
-    </ThemeProvider>
+    </MobileLayout>
   );
 }
 
