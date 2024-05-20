@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import React, { useContext, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
+import Chat_modal from '../../../components/Chat_modal';
 import { HistoryTextContext } from '../Funnel';
 import ChatBox from '../chatbox/ChatBox';
 import MyChat from '../chatbox/MyChat';
-import Chat_modal from '../../../components/chat_modal';
 
 import { getAnswers, getQuestions, getWeights } from '../../../api';
 
@@ -35,7 +35,7 @@ const Step2 = ({ current, onChangeStep, onAddWeight }) => {
 
     setAnswers(answers.data.answerList);
 
-    setData(response.data.questionList);
+    setData(response.data.questionList.slice(response.data.questionList.length - 2));
   };
 
   useEffect(() => {

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 //채팅 화면 안에 모달 띄우기
@@ -85,7 +85,7 @@ const BackDrop = styled.div`
 const Dialog = styled.div`
   position: fixed;
   top: 249px;
-  left: 800px;
+  left: 710px;
   display: flex;
   flex-direction: column;
   justify-content: center;

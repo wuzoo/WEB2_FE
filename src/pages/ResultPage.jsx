@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Chat_modal from '../components/Chat_modal';
 import styled from 'styled-components';
+import Chat_modal from '../components/Chat_modal';
 
 //최종결과 조회 api -> imageUrl, title, content
 
@@ -14,7 +14,7 @@ const ResultPage = () => {
 
   useEffect(() => {
     axios
-      .get(`https://api.g0-100.p-e.kr/api/v1/result/1/${state.state}`, {
+      .get(`https://api.g0-100.p-e.kr/api/v1/result/1/${state.state.weight}`, {
         headers: {
           'Content-Type': 'application/json',
           memberId: 1,
