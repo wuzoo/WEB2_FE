@@ -6,7 +6,7 @@ on:
 
 jobs:
   sync:
-    name: Sync fored repository
+    name: Sync forked repository
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,7 +20,7 @@ jobs:
           node-version: 21.4.0
 
       - name: Build project
-        run: yarn build
+        run: yarn run build
 
       - name: Add remote URL
         run: |
