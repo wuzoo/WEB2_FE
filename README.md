@@ -21,28 +21,28 @@
     <tr align="center">
       <td style="min-width: 150px;">
             <a href="https://github.com/wuzoo">
-              <img src="https://velog.velcdn.com/images/wuzoo/post/e1aa298f-865b-4656-a2f0-9928e8c27427/image.jpeg" style="object-fit: cover;"  width="200" height="220" alt="깃허브계정-프로필사진">
+              <img src="https://velog.velcdn.com/images/wuzoo/post/e1aa298f-865b-4656-a2f0-9928e8c27427/image.jpeg" style="object-fit: cover;"  width="200" height="220" alt="깃허브계정-프로필사진" />
               <br />
               <b>wuzoo</b>
             </a>
         </td>
       <td style="min-width: 150px;">
             <a href="https://github.com/rtttr1">
-              <img src="https://velog.velcdn.com/images/wuzoo/post/f1fd047c-29e4-4578-87a9-3d492f04ed97/image.png"  style="object-fit: cover;" width="200" height="220" alt="깃허브계정-프로필사진">
+              <img src="https://velog.velcdn.com/images/wuzoo/post/f1fd047c-29e4-4578-87a9-3d492f04ed97/image.png"  style="object-fit: cover;" width="200" height="220" alt="깃허브계정-프로필사진" />
               <br />
               <b>rtttr1</b>
             </a>
         </td>
       <td style="min-width: 150px;">
             <a href="https://github.com/Bowoon1216">
-              <img src="https://velog.velcdn.com/images/wuzoo/post/24f509b0-cafd-4f49-9136-7393152e067d/image.jpeg" style="object-fit: cover;"  width="200" height="220" alt="깃허브계정-프로필사진">
+              <img src="https://velog.velcdn.com/images/wuzoo/post/24f509b0-cafd-4f49-9136-7393152e067d/image.jpeg" style="object-fit: cover;"  width="200" height="220" alt="깃허브계정-프로필사진" />
               <br />
               <b>Bowoon1216</b>
             </a>
         </td>
         <td style="min-width: 150px;">
             <a href="https://github.com/yarimu">
-              <img src="https://velog.velcdn.com/images/wuzoo/post/1becdd84-1287-4498-ad9d-8ded81e8ca5e/image.jpeg" style="object-fit: cover;"  width="200" height="220" alt="깃허브계정-프로필사진">
+              <img src="https://velog.velcdn.com/images/wuzoo/post/1becdd84-1287-4498-ad9d-8ded81e8ca5e/image.jpeg" style="object-fit: cover;"  width="200" height="220" alt="깃허브계정-프로필사진" />
               <br />
               <b>yarimu</b>
             </a>
