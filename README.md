@@ -28,7 +28,7 @@
         </td>
       <td style="min-width: 150px;">
             <a href="https://github.com/rtttr1">
-              <img src="https://velog.velcdn.com/images/wuzoo/post/f1fd047c-29e4-4578-87a9-3d492f04ed97/image.png"  style="object-fit: cover;" width="200" height="220" alt="깃허브계정-프로필사진" />
+              <img src="https://github.com/NOW-SOPT-CDSP-WEB6/Naver-Reservation-FE/assets/121484561/20b124f8-c659-4525-9399-d1de59689b4c"  style="object-fit: cover;" width="200" height="220" alt="깃허브계정-프로필사진" />
               <br />
               <b>rtttr1</b>
             </a>
@@ -151,6 +151,3 @@
 3. 질문해도 예민하게 받아들이지 않기
 4. “청유형”으로 말하기
 5. 화내지 않기, 둥근 말투
- 
-<h3>After</h3>
-<img style="object-fit: cover;" src="https://github.com/NOW-SOPT-SOPKATHON-WEB2/WEB2_FE/assets/157878428/1b6d94d7-a7da-4eb2-a9a8-6e2b298e506e" alt="웨비 팀원들 사진 (before)" width="400" height="400" />
