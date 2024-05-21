@@ -28,7 +28,7 @@ const Funnel = () => {
 
   const navigate = useNavigate();
 
-  if (isDone || isTriggered) {
+  if (isDone) {
     navigate('/result', {
       state: {
         weight,
@@ -72,7 +72,7 @@ const Funnel = () => {
         current={step}
         onFinish={() => setIsDone(true)}
       ></Step5>
-      <Chat_modal />
+      <Chat_modal open={isTriggered} weight={weight} />
     </HistoryTextProvider>
   );
 };
