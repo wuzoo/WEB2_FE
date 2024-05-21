@@ -1,7 +1,7 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-import Chat_modal from '../../../components/chat_modal';
-import axios from 'axios';
+import Chat_modal from '../../../components/Chat_modal';
 
 //const [variant, setVariant] = useState();
 

@@ -2,18 +2,16 @@ import { motion } from 'framer-motion';
 import React, { useContext, useEffect, useState } from 'react';
 import { default as css, default as styled } from 'styled-components';
 import { getAnswers, getQuestions, getWeights } from '../../../api';
-import Chat_modal from '../../../components/Chat_modal';
 import { HistoryTextContext } from '../Funnel';
 import ChatBox from '../chatbox/ChatBox';
 import MyChat from '../chatbox/MyChat';
 
-const Step1 = ({ current, onChangeStep, onAddWeight }) => {
+const Step1 = ({ current, onChangeStep, onAddWeight, onStop }) => {
   const [clickedId, setClickedId] = useState(0);
   const [isSelected, setIsSelected] = useState(false);
   const [data, setData] = useState();
   const [answers, setAnswers] = useState([]);
   const { texts, setTexts } = useContext(HistoryTextContext);
-  const [open, setOpen] = useState(false);
 
   const getData = async () => {
     const response = await getQuestions(1);
@@ -39,7 +37,7 @@ const Step1 = ({ current, onChangeStep, onAddWeight }) => {
     }
   }, [isSelected]);
   const handleModalOpen = () => {
-    setOpen((prevState) => !prevState);
+    onStop((prev) => !prev);
   };
   return (
     <>
@@ -75,7 +73,6 @@ const Step1 = ({ current, onChangeStep, onAddWeight }) => {
               </AnswerButton>
             ))}
             <GoBackButton onClick={handleModalOpen}>지금 고백하기</GoBackButton>
-            <Chat_modal open={open} />{' '}
           </Wrapper>
         </Container>
       )}
