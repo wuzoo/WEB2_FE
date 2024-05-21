@@ -9,11 +9,9 @@ import styled, { css } from 'styled-components';
 //varient는 true: 중간에 고백했을떄
 //false: 마무리 됐을 때
 
-const Chat_modal = ({ variant, open }) => {
-  console.log(open);
+const Chat_modal = ({ variant, open, weight }) => {
   const navi = useNavigate();
-  //routs이동 하는 그거 뭐였더라
-  console.log('ddd' + variant);
+
   if (open) {
     if (variant < 8) {
       //중간에 고백했을때!!!!
@@ -27,7 +25,11 @@ const Chat_modal = ({ variant, open }) => {
               <Btn1 onClick={() => setIsOpen((prev) => !prev)}>돌아가기</Btn1>
               <Btn2
                 onClick={() => {
-                  navi('/result');
+                  navi('/result', {
+                    state: {
+                      weight,
+                    },
+                  });
                 }}
               >
                 고백하기
@@ -48,7 +50,11 @@ const Chat_modal = ({ variant, open }) => {
             <ButtonContainer>
               <Btn3
                 onClick={() => {
-                  navi('/result');
+                  navi('/result', {
+                    state: {
+                      weight,
+                    },
+                  });
                 }}
               >
                 고백하기
@@ -74,18 +80,20 @@ const BackDrop = styled.div`
         `}
 
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 `;
 const Dialog = styled.div`
-  position: fixed;
-  top: 249px;
-  left: 710px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
